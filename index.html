@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAED Tierra & Luz | Velas Artesanales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #faf7f5;
+      --card-bg: #ffffff;
+      --text-color: #332d2b;
+      --accent-color: #c88d76;
+      --accent-hover: #b0745e;
+      --gold: #d4af37;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 2.5rem 1rem 1.5rem;
+      border-bottom: 1px solid #eae2dc;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      color: var(--text-color);
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      background-color: #f4ede8;
+      border-bottom: 1px solid #eae2dc;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #2c2523;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent-color);
+      margin: 8px auto 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background-color: #f0ece9;
+    }
+
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .card-price {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-align: center;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .about {
+      background-color: #ffffff;
+      padding: 4rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid #eae2dc;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #888;
+      background-color: var(--bg-color);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">KAED</div>
+    <div class="brand-subtitle">Tierra & Luz • Dos Almas, Una Luz</div>
+  </header>
+
+  <section class="hero">
+    <h1>Arte artesanal en luz y aroma</h1>
+    <p>Velas y jabones artesanales con diseño, color y aromas que transforman tu hogar.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">Catálogo Completo</h2>
+
+    <div class="grid">
+
+      <!-- 1 -->
+      <div class="card">
+        <img src="VELON DE CANELA.jpeg" alt="Velón de Canela">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Canela</div>
+          <h3 class="card-title">Velón Pasión de Canela</h3>
+          <p class="card-text">Diseño artesanal con flores talladas en relieve color rojo fucsia. Fuego interior y aroma envolvente.</p>
+          <div class="card-price">Consultar Precio</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20el%20Velon%20Pasion%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <img src="VELÓN DE CANELA AMARILLO.jpeg" alt="Velón de Canela Amarillo">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Canela</div>
+          <h3 class="card-title">Velón Resplandor de Canela</h3>
+          <p class="card-text">Edición especial amarilla. Flores talladas en relieve que transmiten luz, energía positiva y optimismo.</p>
+          <div class="card-price">Consultar Precio</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20el%20Velon%20Resplandor%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <img src="CANELA.jpeg" alt="Vela de Rombo Cálido Hogar">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Canela</div>
+          <h3 class="card-title">Cálido Hogar (Vela Rombo)</h3>
+          <p class="card-text">Diseño geométrico sofisticado en cera de molde con aroma cálido a canela.</p>
+          <div class="card-price">$10.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Rombo%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <img src="SANDIA.jpeg" alt="Vela Perrito Alegría Tropical">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Sandía</div>
+          <h3 class="card-title">Perrito Alegría Tropical</h3>
+          <p class="card-text">Vela artesanal de perrito con refrescante y dulce aroma a sandía.</p>
+          <div class="card-price">$9.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Perrito%20Sandia" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card">
+        <img src="CHOCOLATE.jpeg" alt="Vela Perrito Dulce Refugio">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Chocolate</div>
+          <h3 class="card-title">Perrito Dulce Refugio</h3>
+          <p class="card-text">Figura canina hecha a mano con reconfortante aroma a chocolate.</p>
+          <div class="card-price">$9.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Perrito%20Chocolate" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card">
+        <img src="SANDIA Y CHOCOLATE.jpeg" alt="Pareja Perritos Sandía y Chocolate">
+        <div class="card-body">
+          <div class="card-tag">Aromas: Sandía / Chocolate</div>
+          <h3 class="card-title">Dúo Perritos Caninos</h3>
+          <p class="card-text">Set de perritos artesanales ideales para regalar amor y dulzura.</p>
+          <div class="card-price">$18.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20el%20Duo%20de%20Perritos" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card">
+        <img src="MENTA.jpeg" alt="Vela Stitch Sueños de Menta">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Menta</div>
+          <h3 class="card-title">Sueños de Menta (Stitch)</h3>
+          <p class="card-text">Cera de soja con flores naturales y destellos azules y dorados.</p>
+          <div class="card-price">$20.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Stitch" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="card">
+        <img src="FRESAS.jpeg" alt="Vela Encanto Dulce Fresa">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Fresa</div>
+          <h3 class="card-title">Encanto Dulce (Fresas)</h3>
+          <p class="card-text">Pequeña vela artesanal en cera de molde con vibrante aroma a fresas.</p>
+          <div class="card-price">$5.800 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Fresas" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="card">
+        <img src="EUCALICTO.jpeg" alt="Vela Esencia Natural Gel">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Eucalipto</div>
+          <h3 class="card-title">Esencia Natural (Vela Gel)</h3>
+          <p class="card-text">Cera de gel transparente decorada con flores secas y aroma a eucalipto.</p>
+          <div class="card-price">$11.500 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Gel%20Eucalipto" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="card">
+        <img src="EUCALICTO 2.jpeg" alt="Vela Brisa Natural">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Eucalipto</div>
+          <h3 class="card-title">Brisa Natural</h3>
+          <p class="card-text">Combinación de cera de gel y cera de soja decorada con flores secas.</p>
+          <div class="card-price">$15.500 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Brisa%20Natural" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="card">
+        <img src="VELA DE AGUA OLOR CANELA.jpeg" alt="Vela Brisa de Cristal Canela">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Canela</div>
+          <h3 class="card-title">Brisa de Cristal (Agua y Gel)</h3>
+          <p class="card-text">Elaborada con agua, cera de gel y soja, hojitas naturales y destellos dorados.</p>
+          <div class="card-price">$15.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20de%20Agua%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="card">
+        <img src="VELA EN GEL DE CANELA.jpeg" alt="Vela Gel Flores Canela">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Canela</div>
+          <h3 class="card-title">Encanto en Gel Canela</h3>
+          <p class="card-text">Diseño transparente con botánicos secos en gel y fragancia a canela.</p>
+          <div class="card-price">$12.500 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20en%20Gel%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="card">
+        <img src="VELA DE CANELA Y FRESA.jpeg" alt="Vela Canela y Fresa">
+        <div class="card-body">
+          <div class="card-tag">Aromas: Canela / Fresa</div>
+          <h3 class="card-title">Dúo Sensorial Canela & Fresa</h3>
+          <p class="card-text">Combinación artesanal única que une la calidez de la canela y la dulzura de la fresa.</p>
+          <div class="card-price">$14.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Vela%20Canela%20y%20Fresa" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="card">
+        <img src="FLORES.jpeg" alt="Flores de Canela Morada">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Canela</div>
+          <h3 class="card-title">Flores de Canela</h3>
+          <p class="card-text">Cera de molde morada decorada con flores talladas en todo su contorno.</p>
+          <div class="card-price">$20.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20Flores%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="card">
+        <img src="FLORES 2.jpeg" alt="Vela Flor de Serenidad Loto">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Flores de Vainilla</div>
+          <h3 class="card-title">Flor de Serenidad (Loto)</h3>
+          <p class="card-text">Inspirada en la flor de loto en tonos morado y blanco con flores de vainilla.</p>
+          <div class="card-price">$11.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Flor%20de%20Serenidad" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="card">
+        <img src="FLORES 3.jpeg" alt="Vela Rosa Encantada">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Flores</div>
+          <h3 class="card-title">Rosa Encantada</h3>
+          <p class="card-text">Diseño de rosa rosada tallada a mano con una delicada fragancia floral.</p>
+          <div class="card-price">$9.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20la%20Rosa%20Encantada" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="card">
+        <img src="FLORES 4.jpeg" alt="Vela Jardín de Armonía">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Flores</div>
+          <h3 class="card-title">Jardín de Armonía</h3>
+          <p class="card-text">Inspirada en los tulipanes con elegantes tonos rosados y delicado aroma floral.</p>
+          <div class="card-price">$13.500 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20Jardin%20de%20Armonia" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="card">
+        <img src="lavanda brisa.jpg" alt="Vela Brisa de Lavanda">
+        <div class="card-body">
+          <div class="card-tag">Aroma: Lavanda</div>
+          <h3 class="card-title">Brisa de Lavanda</h3>
+          <p class="card-text">Cera de soja en vaso de vidrio azul con aroma relajante de lavanda.</p>
+          <div class="card-price">$15.000 COP</div>
+          <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola,%20me%20interesa%20Brisa%20de%20Lavanda" class="btn" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="about">
+    <h2 class="section-title">Sobre KAED Tierra & Luz</h2>
+    <p>Velas y jabones artesanales con diseño, color y aromas que transforman tu hogar. Fusionamos la psicología del color con fragancias únicas para regalarte una experiencia artesanal que despierta emociones en cada encendida.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 KAED Tierra & Luz. Hecho a mano con amor.</p>
+  </footer>
+
+  <a href="https://wa.me/TUNUMERODEWHATSAPP?text=Hola!%20Quiero%20mas%20informacion%20sobre%20las%20velas%20de%20KAED" class="whatsapp-float" target="_blank">
+    💬 Pedir por WhatsApp
+  </a>
+
+</body>
+</html>

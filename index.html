@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KAED Tierra & Luz | Velas Artesanales</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>KAED Tierra & Luz | Velas y Jabones Artesanales</title>
+  
+  <!-- Tipografías Elegantes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-color: #faf7f5;
-      --card-bg: #ffffff;
-      --text-color: #332d2b;
-      --accent-color: #c88d76;
-      --accent-hover: #b0745e;
-      --gold: #d4af37;
+      --bg-main: #f4efe9;
+      --bg-card: #ffffff;
+      --text-dark: #2a2421;
+      --text-muted: #786e68;
+      --accent: #b07d62;
+      --accent-hover: #96654c;
+      --border-color: #e2d7cd;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'Montserrat', sans-serif;
     }
 
     * {
@@ -21,226 +29,380 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+    html {
+      scroll-behavior: smooth;
     }
 
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HEADER CON EFECTO CRISTAL (GLASSMORPHISM) */
     header {
-      background-color: #ffffff;
-      text-align: center;
-      padding: 2.5rem 1rem 1.5rem;
-      border-bottom: 1px solid #eae2dc;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      z-index: 1000;
+      background: rgba(244, 239, 233, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 215, 205, 0.6);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
     }
 
     .brand-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      letter-spacing: 3px;
-      color: var(--text-color);
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 6px;
+      font-weight: 400;
       text-transform: uppercase;
+      color: var(--text-dark);
+      text-decoration: none;
     }
 
     .brand-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.7rem;
       letter-spacing: 2px;
-      color: var(--accent-color);
+      color: var(--accent);
       text-transform: uppercase;
-      margin-top: 5px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 3.5rem 1.5rem;
-      background-color: #f4ede8;
-      border-bottom: 1px solid #eae2dc;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #2c2523;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto;
-      font-weight: 300;
-      font-size: 1.05rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 2px;
-      background-color: var(--accent-color);
-      margin: 8px auto 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    nav {
+      display: flex;
       gap: 2rem;
     }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO BANNER ESTILO VERCEL / BOUTIQUE */
+    .hero {
+      min-height: 75vh;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: radial-gradient(circle at center, #faf6f0 0%, #f4efe9 100%);
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      max-width: 800px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      border: 1px solid var(--text-dark);
+      background: transparent;
+      color: var(--text-dark);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    .btn-hero:hover {
+      background-color: var(--text-dark);
+      color: var(--bg-main);
+    }
+
+    /* FILTROS INTERACTIVOS */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      color: var(--text-dark);
+      border-color: var(--accent);
+    }
+
+    /* GRID & TARJETAS DE PRODUCTO CON EFECTO HOVER */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(42, 36, 33, 0.08);
+    }
+
+    .card-img-wrapper {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      background-color: #eee9e3;
     }
 
     .card img {
       width: 100%;
-      height: 260px;
+      height: 100%;
       object-fit: cover;
-      background-color: #f0ece9;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .card-img-wrapper img {
+      transform: scale(1.06);
     }
 
     .card-body {
-      padding: 1.25rem;
+      padding: 1.8rem 1.4rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+      text-align: center;
     }
 
     .card-tag {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent-color);
-      font-weight: 600;
-      margin-bottom: 0.3rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
 
     .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
     }
 
     .card-text {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
       flex-grow: 1;
     }
 
     .card-price {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text-color);
-      margin-bottom: 1rem;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
     }
 
     .btn {
       display: inline-block;
-      text-align: center;
-      background-color: var(--accent-color);
-      color: #fff;
-      padding: 0.7rem 1.2rem;
-      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      background-color: var(--text-dark);
+      color: #ffffff;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
+      border-radius: 2px;
     }
 
     .btn:hover {
-      background-color: var(--accent-hover);
+      background-color: var(--accent);
     }
 
+    /* ANIMACIÓN SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* SECCIÓN SOBRE NOSOTROS */
     .about {
-      background-color: #ffffff;
-      padding: 4rem 1.5rem;
-      margin-top: 3rem;
-      border-top: 1px solid #eae2dc;
+      background-color: #ece5dc;
+      padding: 6rem 1.5rem;
       text-align: center;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border-color);
     }
 
     .about p {
-      max-width: 750px;
+      max-width: 700px;
       margin: 0 auto;
       font-size: 1rem;
-      color: #555;
+      color: var(--text-muted);
+      line-height: 1.8;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.85rem;
-      color: #888;
-      background-color: var(--bg-color);
+      padding: 2.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
 
+    /* BOTÓN WHATSAPP MINIMALISTA */
     .whatsapp-float {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-weight: 600;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--text-dark);
+      color: var(--bg-main);
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      z-index: 999;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
-      z-index: 1000;
+    }
+
+    .whatsapp-float:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 0.8rem; text-align: center; }
+      nav { gap: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="brand-title">KAED</div>
-    <div class="brand-subtitle">Tierra & Luz • Dos Almas, Una Luz</div>
+    <div>
+      <a href="#" class="brand-title">KAED</a>
+      <div class="brand-subtitle">Tierra & Luz • Dos Almas, Una Luz</div>
+    </div>
+    <nav>
+      <a href="#catalogo">Colección</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="https://wa.me/3506609536" target="_blank">Contacto</a>
+    </nav>
   </header>
 
-  <section class="hero">
+  <!-- HERO -->
+  <section class="hero reveal">
+    <div class="hero-badge">Piezas Artesanales de Autor</div>
     <h1>Arte artesanal en luz y aroma</h1>
     <p>Velas y jabones artesanales con diseño, color y aromas que transforman tu hogar.</p>
+    <a href="#catalogo" class="btn-hero">Descubrir Colección</a>
   </section>
 
-  <main class="container">
-    <h2 class="section-title">Catálogo Completo</h2>
+  <!-- CATALOGO -->
+  <main class="container" id="catalogo">
+    <h2 class="section-title reveal">Catálogo Completo</h2>
+
+    <!-- FILTROS POR CATEGORÍA -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" onclick="filterCategory('all')">Todas</button>
+      <button class="filter-btn" onclick="filterCategory('canela')">Canela & Especias</button>
+      <button class="filter-btn" onclick="filterCategory('flores')">Flores & Dulce</button>
+      <button class="filter-btn" onclick="filterCategory('gel')">Velas en Gel</button>
+    </div>
 
     <div class="grid">
 
       <!-- 1 -->
-      <div class="card">
-        <img src="imagenes/Velón de Canela.jpeg" alt="Velón de Canela">
+      <div class="card reveal" data-category="canela">
+        <div class="card-img-wrapper">
+          <img src="imagenes/Velón de Canela.jpeg" alt="Velón de Canela">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Velón Pasión de Canela</h3>
@@ -251,8 +413,10 @@
       </div>
 
       <!-- 2 -->
-      <div class="card">
-        <img src="imagenes/Velón de Canela Amarillo.jpeg" alt="Velón de Canela Amarillo">
+      <div class="card reveal" data-category="canela">
+        <div class="card-img-wrapper">
+          <img src="imagenes/Velón de Canela Amarillo.jpeg" alt="Velón de Canela Amarillo">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Velón Resplandor de Canela</h3>
@@ -263,8 +427,10 @@
       </div>
 
       <!-- 3 -->
-      <div class="card">
-        <img src="imagenes/CANELA.jpeg" alt="Vela de Rombo Cálido Hogar">
+      <div class="card reveal" data-category="canela">
+        <div class="card-img-wrapper">
+          <img src="imagenes/CANELA.jpeg" alt="Vela de Rombo Cálido Hogar">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Cálido Hogar (Vela Rombo)</h3>
@@ -275,8 +441,10 @@
       </div>
 
       <!-- 4 -->
-      <div class="card">
-        <img src="imagenes/SANDIA.jpeg" alt="Vela Perrito Alegría Tropical">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/SANDIA.jpeg" alt="Vela Perrito Alegría Tropical">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Sandía</div>
           <h3 class="card-title">Perrito Alegría Tropical</h3>
@@ -287,8 +455,10 @@
       </div>
 
       <!-- 5 -->
-      <div class="card">
-        <img src="imagenes/CHOCOLATE.jpeg" alt="Vela Perrito Dulce Refugio">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/CHOCOLATE.jpeg" alt="Vela Perrito Dulce Refugio">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Chocolate</div>
           <h3 class="card-title">Perrito Dulce Refugio</h3>
@@ -299,8 +469,10 @@
       </div>
 
       <!-- 6 -->
-      <div class="card">
-        <img src="imagenes/SANDIA Y CHOCOLATE.jpeg" alt="Pareja Perritos Sandía y Chocolate">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/SANDIA Y CHOCOLATE.jpeg" alt="Pareja Perritos Sandía y Chocolate">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aromas: Sandía / Chocolate</div>
           <h3 class="card-title">Dúo Perritos Caninos</h3>
@@ -311,8 +483,10 @@
       </div>
 
       <!-- 7 -->
-      <div class="card">
-        <img src="imagenes/MENTA.jpeg" alt="Vela Stitch Sueños de Menta">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/MENTA.jpeg" alt="Vela Stitch Sueños de Menta">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Menta</div>
           <h3 class="card-title">Sueños de Menta (Stitch)</h3>
@@ -323,8 +497,10 @@
       </div>
 
       <!-- 8 -->
-      <div class="card">
-        <img src="imagenes/FRESAS.jpeg" alt="Vela Encanto Dulce Fresa">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/FRESAS.jpeg" alt="Vela Encanto Dulce Fresa">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Fresa</div>
           <h3 class="card-title">Encanto Dulce (Fresas)</h3>
@@ -335,8 +511,10 @@
       </div>
 
       <!-- 9 -->
-      <div class="card">
-        <img src="imagenes/EUCALICTO.jpeg" alt="Vela Esencia Natural Gel">
+      <div class="card reveal" data-category="gel">
+        <div class="card-img-wrapper">
+          <img src="imagenes/EUCALICTO.jpeg" alt="Vela Esencia Natural Gel">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Eucalipto</div>
           <h3 class="card-title">Esencia Natural (Vela Gel)</h3>
@@ -347,8 +525,10 @@
       </div>
 
       <!-- 10 -->
-      <div class="card">
-        <img src="imagenes/EUCALICTO 2.jpeg" alt="Vela Brisa Natural">
+      <div class="card reveal" data-category="gel">
+        <div class="card-img-wrapper">
+          <img src="imagenes/EUCALICTO 2.jpeg" alt="Vela Brisa Natural">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Eucalipto</div>
           <h3 class="card-title">Brisa Natural</h3>
@@ -359,8 +539,10 @@
       </div>
 
       <!-- 11 -->
-      <div class="card">
-        <img src="imagenes/VELA DE AGUA OLOR CANELA.jpeg" alt="Vela Brisa de Cristal Canela">
+      <div class="card reveal" data-category="gel">
+        <div class="card-img-wrapper">
+          <img src="imagenes/VELA DE AGUA OLOR CANELA.jpeg" alt="Vela Brisa de Cristal Canela">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Brisa de Cristal (Agua y Gel)</h3>
@@ -371,8 +553,10 @@
       </div>
 
       <!-- 12 -->
-      <div class="card">
-        <img src="imagenes/VELA EN GEL DE CANELA.jpeg" alt="Vela Gel Flores Canela">
+      <div class="card reveal" data-category="gel">
+        <div class="card-img-wrapper">
+          <img src="imagenes/VELA EN GEL DE CANELA.jpeg" alt="Vela Gel Flores Canela">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Encanto en Gel Canela</h3>
@@ -383,8 +567,10 @@
       </div>
 
       <!-- 13 -->
-      <div class="card">
-        <img src="imagenes/VELA DE CANELA Y FRESA.jpeg" alt="Vela Canela y Fresa">
+      <div class="card reveal" data-category="canela">
+        <div class="card-img-wrapper">
+          <img src="imagenes/VELA DE CANELA Y FRESA.jpeg" alt="Vela Canela y Fresa">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aromas: Canela / Fresa</div>
           <h3 class="card-title">Dúo Sensorial Canela & Fresa</h3>
@@ -395,8 +581,10 @@
       </div>
 
       <!-- 14 -->
-      <div class="card">
-        <img src="imagenes/FLORES.jpeg" alt="Flores de Canela Morada">
+      <div class="card reveal" data-category="canela">
+        <div class="card-img-wrapper">
+          <img src="imagenes/FLORES.jpeg" alt="Flores de Canela Morada">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Flores de Canela</h3>
@@ -407,8 +595,10 @@
       </div>
 
       <!-- 15 -->
-      <div class="card">
-        <img src="imagenes/FLORES 2.jpeg" alt="Vela Flor de Serenidad Loto">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/FLORES 2.jpeg" alt="Vela Flor de Serenidad Loto">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Flores de Vainilla</div>
           <h3 class="card-title">Flor de Serenidad (Loto)</h3>
@@ -419,8 +609,10 @@
       </div>
 
       <!-- 16 -->
-      <div class="card">
-        <img src="imagenes/FLORES 3.jpeg" alt="Vela Rosa Encantada">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/FLORES 3.jpeg" alt="Vela Rosa Encantada">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Flores</div>
           <h3 class="card-title">Rosa Encantada</h3>
@@ -431,8 +623,10 @@
       </div>
 
       <!-- 17 -->
-      <div class="card">
-        <img src="imagenes/FLORES 4.jpeg" alt="Vela Jardín de Armonía">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/FLORES 4.jpeg" alt="Vela Jardín de Armonía">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Flores</div>
           <h3 class="card-title">Jardín de Armonía</h3>
@@ -443,8 +637,10 @@
       </div>
 
       <!-- 18 -->
-      <div class="card">
-        <img src="imagenes/lavanda brisa.jpg" alt="Vela Brisa de Lavanda">
+      <div class="card reveal" data-category="flores">
+        <div class="card-img-wrapper">
+          <img src="imagenes/lavanda brisa.jpg" alt="Vela Brisa de Lavanda">
+        </div>
         <div class="card-body">
           <div class="card-tag">Aroma: Lavanda</div>
           <h3 class="card-title">Brisa de Lavanda</h3>
@@ -457,18 +653,52 @@
     </div>
   </main>
 
-  <section class="about">
+  <!-- NOSOTROS -->
+  <section class="about reveal" id="nosotros">
     <h2 class="section-title">Sobre KAED Tierra & Luz</h2>
     <p>Velas y jabones artesanales con diseño, color y aromas que transforman tu hogar. Fusionamos la psicología del color con fragancias únicas para regalarte una experiencia artesanal que despierta emociones en cada encendida.</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 KAED Tierra & Luz. Hecho a mano con amor.</p>
   </footer>
 
+  <!-- BOTON WHATSAPP -->
   <a href="https://wa.me/3506609536?text=Hola!%20Quiero%20mas%20informacion%20sobre%20las%20velas%20de%20KAED" class="whatsapp-float" target="_blank">
     💬 Pedir por WhatsApp
   </a>
+
+  <!-- SCRIPTS DE INTERACCIÓN -->
+  <script>
+    // 1. Animación de revelado al hacer Scroll (Scroll Reveal)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 2. Filtros de categoría en el catálogo
+    function filterCategory(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+          setTimeout(() => card.classList.add('visible'), 50);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>

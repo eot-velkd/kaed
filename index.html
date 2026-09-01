@@ -125,7 +125,7 @@
     .hero-img-container {
       width: 100%;
       max-width: 650px;
-      height: 380px; /* Agrandado para mejor visibilidad del perrito */
+      height: 380px;
       margin-bottom: 2rem;
       border-radius: 12px;
       overflow: hidden;
@@ -438,6 +438,88 @@
       margin-bottom: 0;
     }
 
+    /* SECCIÓN TESTIMONIOS */
+    .testimonials-section {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .rating-summary {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .candle-rating {
+      font-size: 1.4rem;
+      color: var(--accent);
+      letter-spacing: 4px;
+      margin: 0.5rem 0;
+    }
+
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+    }
+
+    .recent-reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .review-author {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .review-product {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+    }
+
+    .review-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .interactive-candles {
+      display: flex;
+      gap: 8px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .candle-icon {
+      opacity: 0.3;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .candle-icon.active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
     /* SECCIÓN CONTACTO "HABLEMOS" */
     .contact-section {
       max-width: 1100px;
@@ -553,8 +635,8 @@
       font-weight: 400;
     }
 
-    /* FORMULARIO DE CONTACTO */
-    .contact-right {
+    /* FORMULARIOS */
+    .contact-right, .review-form-card {
       background-color: var(--bg-form);
       padding: 2.5rem;
       border-radius: 12px;
@@ -578,7 +660,7 @@
       margin-bottom: 0.4rem;
     }
 
-    .form-input, .form-textarea {
+    .form-input, .form-textarea, .form-select {
       width: 100%;
       padding: 0.8rem 1rem;
       border: 1px solid rgba(0,0,0,0.05);
@@ -591,7 +673,7 @@
       transition: border-color 0.3s ease;
     }
 
-    .form-input:focus, .form-textarea:focus {
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
       border-color: var(--accent);
     }
 
@@ -672,7 +754,7 @@
     @media (max-width: 850px) {
       header { flex-direction: column; gap: 0.8rem; text-align: center; }
       nav { gap: 1.2rem; }
-      .contact-container { grid-template-columns: 1fr; }
+      .contact-container, .testimonials-container { grid-template-columns: 1fr; }
       .hero-img-container { height: 280px; }
     }
   </style>
@@ -691,6 +773,7 @@
     <nav>
       <a href="#catalogo">Colección</a>
       <a href="#nosotros">Nosotros</a>
+      <a href="#testimonios">Testimonios</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
@@ -730,7 +813,7 @@
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Velón Pasión de Canela</h3>
-          <p class="card-text">Diseño artesanal con flores talladas en relief color rojo fucsia. Fuego interior y aroma envolvente.</p>
+          <p class="card-text">Diseño artesanal con flores talladas en relieve color rojo fucsia. Fuego interior y aroma envolvente.</p>
           <div class="card-price">Consultar Precio</div>
           <a href="https://wa.me/3506609536?text=Hola,%20me%20interesa%20el%20Velon%20Pasion%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
         </div>
@@ -1012,6 +1095,93 @@
     </div>
   </section>
 
+  <!-- SECCIÓN TESTIMONIOS / RESEÑAS -->
+  <section class="testimonials-section reveal" id="testimonios">
+    <div style="text-align: center;">
+      <span style="font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">Testimonios</span>
+      <h2 class="section-title" style="margin-top: 0.2rem;">Lo que dicen nuestros clientes</h2>
+    </div>
+
+    <div class="rating-summary">
+      <div class="candle-rating" id="avgCandles">🕯️🕯️🕯️🕯️🕯️</div>
+      <span style="font-size: 0.85rem; color: var(--text-muted);" id="ratingText">5.0 de 5 (2 reseñas)</span>
+    </div>
+
+    <div class="testimonials-container">
+      
+      <!-- Columna Izquierda: Reseñas Recientes -->
+      <div>
+        <h4 style="font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 1rem; color: var(--text-dark);">Reseñas recientes</h4>
+        <div class="recent-reviews" id="reviewsList">
+          
+          <div class="review-card">
+            <div class="review-header">
+              <span class="review-author">María Paula G.</span>
+              <span style="color: var(--accent);">🕯️🕯️🕯️🕯️🕯️</span>
+            </div>
+            <div class="review-product">Perrito Dulce Refugio</div>
+            <div class="review-text">"El detalle de la velita es precioso, da lástima encenderla de lo linda que es. El olor a chocolate inunda mi sala aun estando apagada."</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <span class="review-author">Carlos Andrés R.</span>
+              <span style="color: var(--accent);">🕯️🕯️🕯️🕯️🕯️</span>
+            </div>
+            <div class="review-product">Velón Pasión de Canela</div>
+            <div class="review-text">"Excelente calidad y la presentación es impecable. Se nota el amor y el trabajo hecho a mano detrás de cada pieza."</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario Deja tu Reseña -->
+      <div class="review-form-card">
+        <h3 class="form-title">Deja tu reseña</h3>
+        <form id="reviewForm" onsubmit="addReview(event)">
+          
+          <div class="form-group">
+            <label>Tu calificación *</label>
+            <div class="interactive-candles" id="candlePicker">
+              <span class="candle-icon active" onclick="selectRating(1)">🕯️</span>
+              <span class="candle-icon active" onclick="selectRating(2)">🕯️</span>
+              <span class="candle-icon active" onclick="selectRating(3)">🕯️</span>
+              <span class="candle-icon active" onclick="selectRating(4)">🕯️</span>
+              <span class="candle-icon active" onclick="selectRating(5)">🕯️</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="revNombre">Tu nombre *</label>
+            <input type="text" id="revNombre" class="form-input" placeholder="¿Cómo te llamas?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="revProducto">Producto *</label>
+            <select id="revProducto" class="form-select" required>
+              <option value="" disabled selected>Selecciona un producto</option>
+              <option value="Velón Pasión de Canela">Velón Pasión de Canela</option>
+              <option value="Perrito Dulce Refugio">Perrito Dulce Refugio</option>
+              <option value="Sueños de Menta (Stitch)">Sueños de Menta (Stitch)</option>
+              <option value="Brisa de Cristal (Gel & Agua)">Brisa de Cristal (Gel & Agua)</option>
+              <option value="Otro Producto">Otro Producto KAED</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="revMensaje">Tu experiencia *</label>
+            <textarea id="revMensaje" class="form-textarea" placeholder="Cuéntanos tu experiencia con nuestros productos..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Enviar Reseña
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
   <!-- SECCIÓN CONTACTO "HABLEMOS" -->
   <section class="contact-section reveal" id="contacto">
     <div style="text-align: center;">
@@ -1068,7 +1238,7 @@
         </div>
       </div>
 
-      <!-- Columna Derecha: Formulario -->
+      <!-- Columna Derecha: Formulario Contacto -->
       <div class="contact-right">
         <h3 class="form-title">Enviar mensaje</h3>
         <form id="contactForm" onsubmit="sendForm(event)">
@@ -1133,7 +1303,7 @@
       });
     }
 
-    // 3. Envío del Formulario a WhatsApp directo
+    // 3. Envío del Formulario Contacto
     function sendForm(e) {
       e.preventDefault();
       const nombre = document.getElementById('nombre').value;
@@ -1144,6 +1314,52 @@
       const url = `https://wa.me/3506609536?text=${encodeURIComponent(text)}`;
       
       window.open(url, '_blank');
+    }
+
+    // 4. Lógica Interactiva de Testimonios / Reseñas
+    let currentRating = 5;
+
+    function selectRating(rating) {
+      currentRating = rating;
+      const candles = document.querySelectorAll('#candlePicker .candle-icon');
+      candles.forEach((candle, index) => {
+        if (index < rating) {
+          candle.classList.add('active');
+        } else {
+          candle.classList.remove('active');
+        }
+      });
+    }
+
+    function addReview(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('revNombre').value;
+      const producto = document.getElementById('revProducto').value;
+      const mensaje = document.getElementById('revMensaje').value;
+
+      const candleStr = '🕯️'.repeat(currentRating);
+
+      // Crear tarjeta HTML de la nueva reseña
+      const reviewCard = document.createElement('div');
+      reviewCard.className = 'review-card';
+      reviewCard.innerHTML = `
+        <div class="review-header">
+          <span class="review-author">${nombre}</span>
+          <span style="color: var(--accent);">${candleStr}</span>
+        </div>
+        <div class="review-product">${producto}</div>
+        <div class="review-text">"${mensaje}"</div>
+      `;
+
+      // Insertar arriba en la lista
+      const list = document.getElementById('reviewsList');
+      list.prepend(reviewCard);
+
+      // Limpiar formulario y reiniciar velitas
+      document.getElementById('reviewForm').reset();
+      selectRating(5);
+
+      alert('¡Gracias por compartir tu experiencia con KAED!');
     }
   </script>
 

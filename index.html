@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KAED Tierra & Luz | Velas y Jabones Artesanales</title>
+  <title>KAED Tierra & Luz | Velas Artesanales</title>
   
   <!-- Tipografías Elegantes de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
       overflow-x: hidden;
     }
 
-    /* HEADER CON EFECTO CRISTAL (GLASSMORPHISM) */
+    /* HEADER CON LOGOTIPO */
     header {
       position: sticky;
       top: 0;
@@ -51,25 +51,37 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(226, 215, 205, 0.6);
-      padding: 1.2rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: all 0.3s ease;
     }
 
-    .brand-title {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      letter-spacing: 6px;
-      font-weight: 400;
-      text-transform: uppercase;
-      color: var(--text-dark);
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
     }
 
+    .brand-logo {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      letter-spacing: 4px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--text-dark);
+    }
+
     .brand-subtitle {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 2px;
       color: var(--accent);
       text-transform: uppercase;
@@ -94,16 +106,32 @@
       color: var(--accent);
     }
 
-    /* HERO BANNER ESTILO VERCEL / BOUTIQUE */
+    /* HERO BANNER CON IMAGEN PRINCIPAL */
     .hero {
-      min-height: 75vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 4rem 1.5rem;
+      padding: 3rem 1.5rem;
       background: radial-gradient(circle at center, #faf6f0 0%, #f4efe9 100%);
+    }
+
+    .hero-img-container {
+      width: 100%;
+      max-width: 500px;
+      height: 280px;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-badge {
@@ -111,15 +139,15 @@
       letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      font-size: clamp(2.1rem, 4.5vw, 3.8rem);
       font-weight: 300;
       letter-spacing: 2px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       max-width: 800px;
       line-height: 1.2;
     }
@@ -127,10 +155,10 @@
     .hero p {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
       max-width: 580px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .btn-hero {
@@ -194,7 +222,7 @@
       border-color: var(--accent);
     }
 
-    /* GRID & TARJETAS DE PRODUCTO CON EFECTO HOVER */
+    /* GRID & TARJETAS DE PRODUCTO */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -291,6 +319,55 @@
       background-color: var(--accent);
     }
 
+    /* SECCIÓN PRÓXIMAMENTE: JABONES ARTESANALES */
+    .coming-soon-section {
+      max-width: 900px;
+      margin: 4rem auto 1rem;
+      padding: 3.5rem 2rem;
+      background: linear-gradient(135deg, #FAF6F0 0%, #EFE8DF 100%);
+      border: 1px dashed var(--accent);
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    .coming-soon-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .coming-soon-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.8;
+    }
+
+    .coming-soon-note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--accent-hover);
+    }
+
     /* ANIMACIÓN SCROLL REVEAL */
     .reveal {
       opacity: 0;
@@ -358,6 +435,7 @@
     @media (max-width: 768px) {
       header { flex-direction: column; gap: 0.8rem; text-align: center; }
       nav { gap: 1.2rem; }
+      .coming-soon-section { padding: 2.5rem 1.2rem; }
     }
   </style>
 </head>
@@ -365,10 +443,13 @@
 
   <!-- HEADER -->
   <header>
-    <div>
-      <a href="#" class="brand-title">KAED</a>
-      <div class="brand-subtitle">Tierra & Luz • Dos Almas, Una Luz</div>
-    </div>
+    <a href="#" class="brand-container">
+      <img src="imagenes/logo.png" alt="KAED Logo" class="brand-logo" onerror="this.style.display='none'">
+      <div>
+        <div class="brand-title">KAED</div>
+        <div class="brand-subtitle">Tierra & Luz • Dos Almas, Una Luz</div>
+      </div>
+    </a>
     <nav>
       <a href="#catalogo">Colección</a>
       <a href="#nosotros">Nosotros</a>
@@ -378,9 +459,13 @@
 
   <!-- HERO -->
   <section class="hero reveal">
+    <div class="hero-img-container">
+      <img src="imagenes/kaed-banner.jpg" alt="KAED Tierra & Luz" class="hero-img">
+    </div>
+    
     <div class="hero-badge">Piezas Artesanales de Autor</div>
     <h1>Arte artesanal en luz y aroma</h1>
-    <p>Velas y jabones artesanales con diseño, color y aromas que transforman tu hogar.</p>
+    <p>Velas artesanales con diseño, color y aromas que transforman tu hogar.</p>
     <a href="#catalogo" class="btn-hero">Descubrir Colección</a>
   </section>
 
@@ -406,7 +491,7 @@
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Velón Pasión de Canela</h3>
-          <p class="card-text">Diseño artesanal con flores talladas en relieve color rojo fucsia. Fuego interior y aroma envolvente.</p>
+          <p class="card-text">Diseño artesanal con flores talladas en relief color rojo fucsia. Fuego interior y aroma envolvente.</p>
           <div class="card-price">Consultar Precio</div>
           <a href="https://wa.me/3506609536?text=Hola,%20me%20interesa%20el%20Velon%20Pasion%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
         </div>
@@ -651,12 +736,23 @@
       </div>
 
     </div>
+
+    <!-- CUADRO PRÓXIMAMENTE: JABONES ARTESANALES -->
+    <div class="coming-soon-section reveal">
+      <div class="coming-soon-badge">Próximamente</div>
+      <h3 class="coming-soon-title">Línea de Jabones Artesanales</h3>
+      <p class="coming-soon-text">
+        En <strong>KAED Tierra & Luz</strong> estamos preparando una nueva experiencia botánica para el cuidado de tu piel. Formulados con ingredientes naturales, aceites esenciales y diseños únicos hechos a mano.
+      </p>
+      <div class="coming-soon-note">✨ Muy pronto disponible en nuestro catálogo ✨</div>
+    </div>
+
   </main>
 
   <!-- NOSOTROS -->
   <section class="about reveal" id="nosotros">
     <h2 class="section-title">Sobre KAED Tierra & Luz</h2>
-    <p>Velas y jabones artesanales con diseño, color y aromas que transforman tu hogar. Fusionamos la psicología del color con fragancias únicas para regalarte una experiencia artesanal que despierta emociones en cada encendida.</p>
+    <p>Velas artesanales con diseño, color y aromas que transforman tu hogar. Fusionamos la psicología del color con fragancias únicas para regalarte una experiencia artesanal que despierta emociones en cada encendida.</p>
   </section>
 
   <!-- FOOTER -->

@@ -389,12 +389,25 @@
       border-top: 1px solid var(--border-color);
     }
 
-    .about p {
-      max-width: 700px;
+    .about-content {
+      max-width: 750px;
       margin: 0 auto;
+    }
+
+    .about p {
       font-size: 1rem;
       color: var(--text-muted);
-      line-height: 1.8;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      margin-top: 2rem;
+      line-height: 1.6;
     }
 
     footer {
@@ -463,7 +476,7 @@
       <img src="imagenes/kaed-banner.jpg" alt="KAED Tierra & Luz" class="hero-img">
     </div>
     
-    <div class="hero-badge">Piezas Artesanales de Autor</div>
+    <div class="hero-badge">Piezas Artesanales desde el Catatumbo</div>
     <h1>Arte artesanal en luz y aroma</h1>
     <p>Velas artesanales con diseño, color y aromas que transforman tu hogar.</p>
     <a href="#catalogo" class="btn-hero">Descubrir Colección</a>
@@ -491,7 +504,7 @@
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Velón Pasión de Canela</h3>
-          <p class="card-text">Diseño artesanal con flores talladas en relief color rojo fucsia. Fuego interior y aroma envolvente.</p>
+          <p class="card-text">Diseño artesanal con flores talladas en relieve color rojo fucsia. Fuego interior y aroma envolvente.</p>
           <div class="card-price">Consultar Precio</div>
           <a href="https://wa.me/3506609536?text=Hola,%20me%20interesa%20el%20Velon%20Pasion%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
         </div>
@@ -749,15 +762,20 @@
 
   </main>
 
-  <!-- NOSOTROS -->
+  <!-- SOBRE NOSOTROS -->
   <section class="about reveal" id="nosotros">
-    <h2 class="section-title">Sobre KAED Tierra & Luz</h2>
-    <p>Velas artesanales con diseño, color y aromas que transforman tu hogar. Fusionamos la psicología del color con fragancias únicas para regalarte una experiencia artesanal que despierta emociones en cada encendida.</p>
+    <div class="about-content">
+      <h2 class="section-title">Nuestra Historia</h2>
+      <p>Somos Karen, Alejandra y Edinson, creadores de KAED.</p>
+      <p>Nacimos en el Catatumbo, una tierra que nos enseñó a ser fuertes, a valorar lo simple y a construir desde el amor. KAED nace de nuestra historia como tridente, de lo que hemos vivido y de las ganas de crear algo con propósito.</p>
+      <p>Elaboramos velas y jabones naturales que invitan a pausar, a conectar y a sentir. Cada producto lleva un pedacito de nuestras raíces y de la luz que hemos decidido construir juntos.</p>
+      <p class="about-quote">"No solo queremos llegar a muchas personas, queremos acompañarlas en sus momentos."</p>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 KAED Tierra & Luz. Hecho a mano con amor.</p>
+    <p>&copy; 2026 KAED Tierra & Luz. Hecho con amor en Colombia.</p>
   </footer>
 
   <!-- BOTON WHATSAPP -->

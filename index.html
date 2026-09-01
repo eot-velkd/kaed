@@ -14,10 +14,14 @@
     :root {
       --bg-main: #f4efe9;
       --bg-card: #ffffff;
+      --bg-light-box: #e5f0e8;
+      --bg-form: #e8e0d5;
       --text-dark: #2a2421;
       --text-muted: #786e68;
       --accent: #b07d62;
       --accent-hover: #96654c;
+      --brand-green: #25d366;
+      --brand-green-dark: #1eb857;
       --border-color: #e2d7cd;
       --font-serif: 'Cormorant Garamond', serif;
       --font-sans: 'Montserrat', sans-serif;
@@ -106,9 +110,9 @@
       color: var(--accent);
     }
 
-    /* HERO BANNER CON IMAGEN PRINCIPAL */
+    /* HERO BANNER - IMAGEN AGRANDADA PARA EL PERRITO */
     .hero {
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -120,12 +124,13 @@
 
     .hero-img-container {
       width: 100%;
-      max-width: 500px;
-      height: 280px;
+      max-width: 650px;
+      height: 380px; /* Agrandado para mejor visibilidad del perrito */
       margin-bottom: 2rem;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--border-color);
     }
 
     .hero-img {
@@ -192,7 +197,14 @@
       font-size: 2.4rem;
       font-weight: 300;
       letter-spacing: 2px;
-      margin-bottom: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 3.5rem;
     }
 
     .filter-bar {
@@ -319,7 +331,7 @@
       background-color: var(--accent);
     }
 
-    /* SECCIÓN PRÓXIMAMENTE: JABONES ARTESANALES */
+    /* SECCIÓN PRÓXIMAMENTE */
     .coming-soon-section {
       max-width: 900px;
       margin: 4rem auto 1rem;
@@ -368,19 +380,7 @@
       color: var(--accent-hover);
     }
 
-    /* ANIMACIÓN SCROLL REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* SECCIÓN SOBRE NOSOTROS */
+    /* SOBRE NOSOTROS, MISIÓN Y VISIÓN */
     .about {
       background-color: #ece5dc;
       padding: 6rem 1.5rem;
@@ -390,7 +390,7 @@
     }
 
     .about-content {
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
@@ -406,8 +406,231 @@
       font-style: italic;
       font-size: 1.35rem;
       color: var(--text-dark);
-      margin-top: 2rem;
+      margin: 2rem 0;
       line-height: 1.6;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+      text-align: left;
+    }
+
+    .mv-box {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 2.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .mv-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .mv-box p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* SECCIÓN CONTACTO "HABLEMOS" */
+    .contact-section {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .whatsapp-card {
+      background-color: var(--bg-light-box);
+      border: 1px solid #d1e3d5;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .whatsapp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .whatsapp-icon-circle {
+      width: 42px;
+      height: 42px;
+      background-color: var(--brand-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .whatsapp-info h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .whatsapp-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .whatsapp-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .btn-whatsapp-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--brand-green);
+      color: white;
+      padding: 0.75rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-whatsapp-box:hover {
+      background-color: var(--brand-green-dark);
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-item {
+      background: #eae3da;
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .info-icon {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .info-text label {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-text span {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+
+    /* FORMULARIO DE CONTACTO */
+    .contact-right {
+      background-color: var(--bg-form);
+      padding: 2.5rem;
+      border-radius: 12px;
+    }
+
+    .form-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 6px;
+      background: #faf6f0;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background-color: #6d5847;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #554436;
+    }
+
+    /* ANIMACIÓN SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
@@ -417,9 +640,10 @@
       letter-spacing: 2px;
       color: var(--text-muted);
       text-transform: uppercase;
+      border-top: 1px solid var(--border-color);
     }
 
-    /* BOTÓN WHATSAPP MINIMALISTA */
+    /* BOTÓN WHATSAPP FLOTANTE */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -445,10 +669,11 @@
       transform: translateY(-3px);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
       header { flex-direction: column; gap: 0.8rem; text-align: center; }
       nav { gap: 1.2rem; }
-      .coming-soon-section { padding: 2.5rem 1.2rem; }
+      .contact-container { grid-template-columns: 1fr; }
+      .hero-img-container { height: 280px; }
     }
   </style>
 </head>
@@ -466,17 +691,17 @@
     <nav>
       <a href="#catalogo">Colección</a>
       <a href="#nosotros">Nosotros</a>
-      <a href="https://wa.me/3506609536" target="_blank">Contacto</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO BANNER -->
   <section class="hero reveal">
     <div class="hero-img-container">
       <img src="imagenes/kaed-banner.jpg" alt="KAED Tierra & Luz" class="hero-img">
     </div>
     
-    <div class="hero-badge">Piezas Artesanales desde el Catatumbo</div>
+    <div class="hero-badge">Piezas Artesanales de Autor</div>
     <h1>Arte artesanal en luz y aroma</h1>
     <p>Velas artesanales con diseño, color y aromas que transforman tu hogar.</p>
     <a href="#catalogo" class="btn-hero">Descubrir Colección</a>
@@ -485,6 +710,7 @@
   <!-- CATALOGO -->
   <main class="container" id="catalogo">
     <h2 class="section-title reveal">Catálogo Completo</h2>
+    <p class="section-subtitle reveal">Haz tu pedido directo haciendo clic en cualquier producto</p>
 
     <!-- FILTROS POR CATEGORÍA -->
     <div class="filter-bar reveal">
@@ -504,7 +730,7 @@
         <div class="card-body">
           <div class="card-tag">Aroma: Canela</div>
           <h3 class="card-title">Velón Pasión de Canela</h3>
-          <p class="card-text">Diseño artesanal con flores talladas en relieve color rojo fucsia. Fuego interior y aroma envolvente.</p>
+          <p class="card-text">Diseño artesanal con flores talladas en relief color rojo fucsia. Fuego interior y aroma envolvente.</p>
           <div class="card-price">Consultar Precio</div>
           <a href="https://wa.me/3506609536?text=Hola,%20me%20interesa%20el%20Velon%20Pasion%20de%20Canela" class="btn" target="_blank">Pedir por WhatsApp</a>
         </div>
@@ -750,7 +976,7 @@
 
     </div>
 
-    <!-- CUADRO PRÓXIMAMENTE: JABONES ARTESANALES -->
+    <!-- PRÓXIMAMENTE -->
     <div class="coming-soon-section reveal">
       <div class="coming-soon-badge">Próximamente</div>
       <h3 class="coming-soon-title">Línea de Jabones Artesanales</h3>
@@ -762,30 +988,124 @@
 
   </main>
 
-  <!-- SOBRE NOSOTROS -->
+  <!-- SOBRE NOSOTROS, MISIÓN Y VISIÓN -->
   <section class="about reveal" id="nosotros">
     <div class="about-content">
       <h2 class="section-title">Nuestra Historia</h2>
       <p>Somos Karen, Alejandra y Edinson, creadores de KAED.</p>
       <p>Nacimos en el Catatumbo, una tierra que nos enseñó a ser fuertes, a valorar lo simple y a construir desde el amor. KAED nace de nuestra historia como tridente, de lo que hemos vivido y de las ganas de crear algo con propósito.</p>
       <p>Elaboramos velas y jabones naturales que invitan a pausar, a conectar y a sentir. Cada producto lleva un pedacito de nuestras raíces y de la luz que hemos decidido construir juntos.</p>
+      
       <p class="about-quote">"No solo queremos llegar a muchas personas, queremos acompañarlas en sus momentos."</p>
+
+      <!-- MISIÓN Y VISIÓN -->
+      <div class="mv-grid">
+        <div class="mv-box">
+          <h3>Misión</h3>
+          <p>Crear velas y jabones naturales que transmitan calma, bienestar y conexión, inspirados en nuestras raíces del Catatumbo y en el valor de lo esencial.</p>
+        </div>
+        <div class="mv-box">
+          <h3>Visión</h3>
+          <p>Llevar la esencia de KAED a muchos hogares, creciendo como una marca cercana y auténtica, sin perder nuestras raíces ni nuestra forma de hacer las cosas con amor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO "HABLEMOS" -->
+  <section class="contact-section reveal" id="contacto">
+    <div style="text-align: center;">
+      <span style="font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">Contacto</span>
+      <h2 class="section-title" style="margin-top: 0.2rem;">Hablemos</h2>
+      <p style="color: var(--text-muted); max-width: 550px; margin: 0 auto; font-size: 0.9rem;">
+        Estamos aquí para responder tus preguntas y ayudarte a encontrar el producto perfecto para ti.
+      </p>
+    </div>
+
+    <div class="contact-container">
+      
+      <!-- Columna Izquierda: WhatsApp e Info -->
+      <div class="contact-left">
+        <div class="whatsapp-card">
+          <div class="whatsapp-header">
+            <div class="whatsapp-icon-circle">💬</div>
+            <div class="whatsapp-info">
+              <h4>WhatsApp</h4>
+              <span>Respuesta rápida</span>
+            </div>
+          </div>
+          <p>Escríbenos directamente por WhatsApp para consultas, pedidos o cualquier pregunta sobre nuestros productos.</p>
+          <a href="https://wa.me/3506609536" class="btn-whatsapp-box" target="_blank">
+            <span>💬</span> Escribir por WhatsApp
+          </a>
+        </div>
+
+        <div style="margin-top: 0.5rem;">
+          <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.8rem;">Otras formas de contacto</span>
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div class="info-text">
+                <label>Email</label>
+                <span>hola@kaed.co</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div class="info-text">
+                <label>Teléfono</label>
+                <span>+57 350 660 9536</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div class="info-text">
+                <label>Ubicación</label>
+                <span>Catatumbo, Colombia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario -->
+      <div class="contact-right">
+        <h3 class="form-title">Enviar mensaje</h3>
+        <form id="contactForm" onsubmit="sendForm(event)">
+          <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" class="form-input" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" class="form-textarea" placeholder="¿En qué podemos ayudarte?" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <span>✈️</span> Enviar Mensaje
+          </button>
+        </form>
+      </div>
+
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 KAED Tierra & Luz. Hecho con amor en Colombia.</p>
+    <p>&copy; 2026 KAED Tierra & Luz. Hecho a mano con amor.</p>
   </footer>
 
-  <!-- BOTON WHATSAPP -->
+  <!-- BOTÓN WHATSAPP FLOTANTE -->
   <a href="https://wa.me/3506609536?text=Hola!%20Quiero%20mas%20informacion%20sobre%20las%20velas%20de%20KAED" class="whatsapp-float" target="_blank">
     💬 Pedir por WhatsApp
   </a>
 
-  <!-- SCRIPTS DE INTERACCIÓN -->
+  <!-- SCRIPTS -->
   <script>
-    // 1. Animación de revelado al hacer Scroll (Scroll Reveal)
+    // 1. Animación de revelado en scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -796,7 +1116,7 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 2. Filtros de categoría en el catálogo
+    // 2. Filtros del catálogo
     function filterCategory(category) {
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
@@ -811,6 +1131,19 @@
           card.style.display = 'none';
         }
       });
+    }
+
+    // 3. Envío del Formulario a WhatsApp directo
+    function sendForm(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      const text = `Hola KAED! Mi nombre es ${nombre} (${email}). ${mensaje}`;
+      const url = `https://wa.me/3506609536?text=${encodeURIComponent(text)}`;
+      
+      window.open(url, '_blank');
     }
   </script>
 
